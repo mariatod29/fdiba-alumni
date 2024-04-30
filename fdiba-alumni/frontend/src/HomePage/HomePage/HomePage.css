@@ -1,0 +1,45 @@
+.mainContainer {
+  padding: 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.custom-carousel .p-carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.custom-carousel img {
+  max-width: 100%;
+}
+
+.custom-carousel
+  .p-carousel-indicators
+  .p-carousel-indicator.p-highlight
+  .p-link {
+  background-color: #0057a2;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.registerNowButton,
+.loginButton {
+  background-color: #0057a2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 2rem;
+  width: 30%;
+}
+
+.registerNowButton:hover,
+.loginButton:hover {
+  background-color: #258eeb;
+}

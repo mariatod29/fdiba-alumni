@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  padding: 1.33rem;
+  background-color: rgba(162, 192, 218, 0.95);
+}
+
+.emailContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.socialMediaContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+  gap: 1rem;
+}
+
+.icon {
+  width: 30px;
+  border-radius: 50%;
+  height: auto;
+}
