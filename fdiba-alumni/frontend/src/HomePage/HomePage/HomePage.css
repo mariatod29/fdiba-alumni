@@ -3,23 +3,6 @@
   text-align: center;
   overflow: hidden;
 }
-.custom-carousel .p-carousel-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-}
-
-.custom-carousel img {
-  max-width: 100%;
-}
-
-.custom-carousel
-  .p-carousel-indicators
-  .p-carousel-indicator.p-highlight
-  .p-link {
-  background-color: #0057a2;
-}
 
 .buttons {
   display: flex;
@@ -35,11 +18,28 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 2rem;
+  margin: 2rem 0;
   width: 30%;
 }
 
 .registerNowButton:hover,
 .loginButton:hover {
   background-color: #258eeb;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin: 1rem 0;
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
