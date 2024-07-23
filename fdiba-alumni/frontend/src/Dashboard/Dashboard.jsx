@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
+import { Carousel } from "primereact/carousel";
 
 const Dashboard = () => {
   const [userName, setUserName] = useState("User");
@@ -35,6 +36,35 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
+  const images = [
+    { url: "/fdiba-event.jpg", alt: "Event 1" },
+    { url: "/fdiba-event-2.jpg", alt: "Event 2" },
+    { url: "/fdiba-event-3.jpg", alt: "Event 3" },
+    { url: "/fdiba-event-4.jpg", alt: "Event 4" },
+  ];
+
+  const responsiveOptions = [
+    {
+      breakpoint: "1024px",
+      numVisible: 1,
+      numScroll: 1,
+    },
+    {
+      breakpoint: "768px",
+      numVisible: 1,
+      numScroll: 1,
+    },
+    {
+      breakpoint: "560px",
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
+
+  const imageTemplate = (image) => {
+    return <img src={image.url} alt={image.alt} />;
+  };
+
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
@@ -56,6 +86,16 @@ const Dashboard = () => {
           </li>
         </ul>
       </nav>
+      <Carousel
+        value={images}
+        numVisible={1}
+        numScroll={1}
+        responsiveOptions={responsiveOptions}
+        className="custom-carousel"
+        circular
+        autoplayInterval={5000}
+        itemTemplate={imageTemplate}
+      />
       <main className="dashboard-main">
         <section className="recent-updates">
           <h2>Recent Updates</h2>

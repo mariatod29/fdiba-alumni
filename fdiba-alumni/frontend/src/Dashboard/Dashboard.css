@@ -89,3 +89,21 @@ body {
 .dashboard-sidebar ul li a:hover {
   text-decoration: underline;
 }
+
+.custom-carousel .p-carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.custom-carousel img {
+  max-width: 100%;
+}
+
+.custom-carousel
+  .p-carousel-indicators
+  .p-carousel-indicator.p-highlight
+  .p-link {
+  background-color: #0057a2;
+}
