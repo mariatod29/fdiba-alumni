@@ -5,10 +5,11 @@ import "./RegistrationForm.css";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    phone: "",
-    linkedin: "",
+    phoneNumber: "",
+    linkedIn: "",
     degreeProgramme: "",
     universityDegree: "",
     yearOfGraduation: "",
@@ -18,23 +19,23 @@ const RegistrationForm = () => {
   });
 
   const degreeProgrammes = [
-    { label: "Informatik (B. Sc.)", value: "Informatik (B. Sc.)" },
+    { label: "Computer Science (B. Sc.)", value: "Computer Science (B. Sc.)" },
     {
-      label: "Mechatronik und Informationstechnik (B. Sc.)",
-      value: "Mechatronik und Informationstechnik (B. Sc.)",
+      label: "Mechatronics and information technology (B. Sc.)",
+      value: "Mechatronics and information technology (B. Sc.)",
     },
     {
-      label: "Wirtschaftsinformatik (B. Sc.)",
-      value: "Wirtschaftsinformatik (B. Sc.)",
+      label: "Business informatics (B. Sc.)",
+      value: "Business informatics (B. Sc.)",
     },
     {
-      label: "Industrielles Managment (M.A.)",
-      value: "Industrielles Managment (M.A.)",
+      label: "Industrial management (M.A.)",
+      value: "Industrial management (M.A.)",
     },
-    { label: "Informatik (M. Sc.)", value: "Informatik (M. Sc.)" },
+    { label: "Computer Science (M.Sc.)", value: "Computer Science (M.Sc.)" },
     {
-      label: "Internationales Management (MBA)",
-      value: "Internationales Management (MBA)",
+      label: "International management (MBA)",
+      value: "International management (MBA)",
     },
   ];
 
@@ -45,29 +46,32 @@ const RegistrationForm = () => {
 
   const rolesInFdibaAlumni = [
     {
-      label: "Mitglied des Alumni-Vereins werden",
-      value: "Mitglied des Alumni-Vereins werden",
+      label: "Become a member of the Alumni Association",
+      value: "Become a member of the Alumni Association",
     },
     {
-      label: "Am Management und an der Organisation beteiligen",
-      value: "Am Management und an der Organisation beteiligen",
+      label: "Participate in the management and organization",
+      value: "Participate in the management and organization",
     },
     {
-      label: "Nur ein paar Ideen und Vorschläge geben",
-      value: "Nur ein paar Ideen und Vorschläge geben",
+      label: "Just give a few ideas and suggestions",
+      value: "Just give a few ideas and suggestions",
     },
-    { label: "Nur mit Kontakten helfen", value: "Nur mit Kontakten helfen" },
+    { label: "Only help with contacts", value: "Only help with contacts" },
     {
-      label: "Nur mit Geld/Sachmitteln helfen",
-      value: "Nur mit Geld/Sachmitteln helfen",
+      label: "Only help with money/material resources",
+      value: "Only help with money/material resources",
     },
-    { label: "Praktikanten brauchen", value: "Praktikanten brauchen" },
-    { label: "Mitarbeiter brauchen", value: "Mitarbeiter brauchen" },
-    { label: "Am Lernprozess teilnehmen", value: "Am Lernprozess teilnehmen" },
-    { label: "FDIBA präsentieren", value: "FDIBA präsentieren" },
+    { label: "Need interns", value: "Need interns" },
+    { label: "Need employees", value: "Need employees" },
     {
-      label: "Meine Organisation/Unternehmen präsentieren",
-      value: "Meine Organisation/Unternehmen präsentieren",
+      label: "Participate in the learning process",
+      value: "Participate in the learning process",
+    },
+    { label: "Present FDIBA", value: "Present FDIBA" },
+    {
+      label: "Present my organization/company",
+      value: "Present my organization/company",
     },
   ];
 
@@ -104,15 +108,26 @@ const RegistrationForm = () => {
   return (
     <>
       <div className="formContainer">
-        <h1>Willkommen zu FDIBA Alumni</h1>
+        <h1>Welcome to FDIBA Alumni!</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Name:
+            First name:
             <input
               type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChangeInput("name")}
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChangeInput("firstName")}
+              required
+            />
+          </label>
+          <label>
+            Last name:
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChangeInput("lastName")}
+              required
             />
           </label>
           <label>
@@ -125,52 +140,55 @@ const RegistrationForm = () => {
             />
           </label>
           <label>
-            Telefon:
+            Phone number:
             <input
               type="text"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChangeInput("phone")}
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChangeInput("phoneNumber")}
             />
           </label>
           <label>
             LinkedIn:
             <input
               type="text"
-              name="linkedin"
-              value={formData.linkedin}
-              onChange={handleChangeInput("linkedin")}
+              name="linkedIn"
+              value={formData.linkedIn}
+              onChange={handleChangeInput("linkedIn")}
             />
           </label>
           <label>
-            Abschluss:
+            Degree programme:
             <Dropdown
               name="degreeProgramme"
               value={formData.degreeProgramme}
               options={degreeProgrammes}
               onChange={(e) => handleChangeDropdown("degreeProgramme", e)}
+              required
             />
           </label>
           <label>
-            Studiengang:
+            University degree:
             <Dropdown
               name="universityDegree"
               value={formData.universityDegree}
               options={universityDegrees}
               onChange={(e) => handleChangeDropdown("universityDegree", e)}
+              required
             />
           </label>
           <label>
-            Abschlussjahr:
+            Year of graduation:
             <input
               type="text"
               name="yearOfGraduation"
               value={formData.yearOfGraduation}
               onChange={handleChangeInput("yearOfGraduation")}
+              required
             />
           </label>
           <label>
-            Organisation/Unternehmen:
+            Organization:
             <input
               type="text"
               name="organization"
@@ -188,7 +206,7 @@ const RegistrationForm = () => {
             />
           </label>
           <label>
-            Welche Rolle wollen Sie in FDIBA Alumni nehmen?
+            What role do you want to have in the Fdiba Alumni Network?
             <MultiSelect
               name="roleInFdibaAlumni"
               value={formData.roleInFdibaAlumni}
