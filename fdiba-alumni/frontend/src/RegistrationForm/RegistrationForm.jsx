@@ -108,7 +108,7 @@ const RegistrationForm = () => {
   return (
     <>
       <div className="formContainer">
-        <h1>Welcome to FDIBA Alumni!</h1>
+        <h2>Welcome to FDIBA Alumni!</h2>
         <form onSubmit={handleSubmit}>
           <label>
             First name:
@@ -157,26 +157,30 @@ const RegistrationForm = () => {
               onChange={handleChangeInput("linkedIn")}
             />
           </label>
-          <label>
-            Degree programme:
-            <Dropdown
-              name="degreeProgramme"
-              value={formData.degreeProgramme}
-              options={degreeProgrammes}
-              onChange={(e) => handleChangeDropdown("degreeProgramme", e)}
-              required
-            />
-          </label>
-          <label>
-            University degree:
-            <Dropdown
-              name="universityDegree"
-              value={formData.universityDegree}
-              options={universityDegrees}
-              onChange={(e) => handleChangeDropdown("universityDegree", e)}
-              required
-            />
-          </label>
+          <div className="dropdown">
+            <label>
+              Degree programme:
+              <Dropdown
+                name="degreeProgramme"
+                value={formData.degreeProgramme}
+                options={degreeProgrammes}
+                onChange={(e) => handleChangeDropdown("degreeProgramme", e)}
+                required
+              />
+            </label>
+          </div>
+          <div className="dropdown">
+            <label>
+              University degree:
+              <Dropdown
+                name="universityDegree"
+                value={formData.universityDegree}
+                options={universityDegrees}
+                onChange={(e) => handleChangeDropdown("universityDegree", e)}
+                required
+              />
+            </label>
+          </div>
           <label>
             Year of graduation:
             <input
@@ -205,16 +209,19 @@ const RegistrationForm = () => {
               onChange={handleChangeInput("position")}
             />
           </label>
-          <label>
-            What role do you want to have in the Fdiba Alumni Network?
-            <MultiSelect
-              name="roleInFdibaAlumni"
-              value={formData.roleInFdibaAlumni}
-              options={rolesInFdibaAlumni}
-              onChange={(e) => handleChangeDropdown("roleInFdibaAlumni", e)}
-              multiple
-            />
-          </label>
+          <div className="dropdown">
+            <label>
+              What role do you want to have in the Fdiba Alumni Network?
+              <MultiSelect
+                name="roleInFdibaAlumni"
+                value={formData.roleInFdibaAlumni}
+                options={rolesInFdibaAlumni}
+                onChange={(e) => handleChangeDropdown("roleInFdibaAlumni", e)}
+                multiple
+              />
+            </label>
+          </div>
+
           <div type="submit" className="registerButton">
             Register
           </div>
