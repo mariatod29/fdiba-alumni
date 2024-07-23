@@ -1,12 +1,13 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  background-color: rgba(162, 192, 218, 0.95);
+  background-color: #fff;
   width: 40%;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -34,6 +35,10 @@ input {
   height: 45px;
 }
 
+.dropdown {
+  margin-bottom: 16px;
+}
+
 .registerButton {
   background-color: #0057a2;
   color: white;
@@ -51,7 +56,8 @@ input {
   background-color: #258eeb;
 }
 
-h1 {
+h2 {
   color: #258eeb;
   text-align: center;
+  font-size: 3rem;
 }
