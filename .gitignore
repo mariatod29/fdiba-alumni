@@ -3,3 +3,9 @@
 ################################################################################
 
 /fdiba-alumni/backend/fdiba-alumni/.vs/fdiba-alumni
+
+### VS Code ###
+.vscode/
+
+### Node modules ###
+node_modules/node_modules/
