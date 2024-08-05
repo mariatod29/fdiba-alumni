@@ -1,5 +1,9 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+﻿### Visual Studio ###
+**/.vs/
 
-/fdiba-alumni/backend/fdiba-alumni/.vs/fdiba-alumni
+### Visual Studio Code ###
+**/.vscode/
+
+### Node Modules ###
+node_modules/
+**/node_modules/
