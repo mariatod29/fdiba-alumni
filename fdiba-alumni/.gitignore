@@ -1,0 +1,8 @@
+### VS Code ###
+.vscode/
+
+### Node modules ###
+node_modules/
+
+### Visual Studio ###
+/fdiba-alumni/backend/fdiba-alumni/.vs
