@@ -37,7 +37,7 @@ const Dashboard = () => {
   }, []);
 
   const images = [
-    { url: "/fdiba-event.jpg", alt: "Event 1" },
+    { url: "/fdiba-event-1.png", alt: "Event 1" },
     { url: "/fdiba-event-2.jpg", alt: "Event 2" },
     { url: "/fdiba-event-3.jpg", alt: "Event 3" },
     { url: "/fdiba-event-4.jpg", alt: "Event 4" },
