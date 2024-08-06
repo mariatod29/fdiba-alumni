@@ -11,13 +11,13 @@
   background-color: rgba(162, 192, 218, 0.95);
 }
 
-.emailContainer {
+.email-container {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.socialMediaContainer {
+.social-media-container {
   display: flex;
   align-items: center;
   gap: 15px;

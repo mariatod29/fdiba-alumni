@@ -8,18 +8,18 @@ import "primeicons/primeicons.css";
 export default function HomePageHeader() {
   return (
     <div className="header">
-      <div className="headingContainer">
+      <div className="heading-container">
         <img src="/fdiba-logo.png" alt="FDIBA Logo" className="logo" />
         <h3>FDIBA Alumni</h3>
       </div>
-      <ul className="navigationList">
-        <li className="navigationItem">
+      <ul className="navigation-list">
+        <li className="navigation-item">
           <Link to="/">Home</Link>
         </li>
-        <li className="navigationItem">
+        <li className="navigation-item">
           <Link to="/about">About</Link>
         </li>
-        <li className="navigationItem">
+        <li className="navigation-item">
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
