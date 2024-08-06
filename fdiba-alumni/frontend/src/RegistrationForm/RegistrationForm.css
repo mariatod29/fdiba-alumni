@@ -1,7 +1,7 @@
-.formContainer {
+.form-container {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   width: 40%;
   justify-content: center;
   align-items: center;
@@ -33,14 +33,15 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
   height: 45px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown {
   margin-bottom: 16px;
 }
 
-.registerButton {
-  background-color: #0057a2;
+.register-button {
+  background-color: #1578cf;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -52,7 +53,7 @@ input {
   align-self: center;
 }
 
-.registerButton:hover {
+.register-button:hover {
   background-color: #258eeb;
 }
 

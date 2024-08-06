@@ -7,7 +7,7 @@ import "primeicons/primeicons.css";
 export default function HomePageFooter() {
   return (
     <div className="footer">
-      <div className="emailContainer">
+      <div className="email-container">
         <p>
           Contact us at:{" "}
           <a href="mailto:contact@fdiba.tu-sofia.bg">
@@ -15,9 +15,9 @@ export default function HomePageFooter() {
           </a>
         </p>
       </div>
-      <div className="socialMediaContainer">
+      <div className="social-media-container">
         <p>Follow us on social media: </p>
-        <div className="socialMediaIcons">
+        <div>
           <a href="https://www.facebook.com/FDIBA.TU.SOFIA">
             <img src="/facebook-logo.png" alt="Facebook" className="icon" />
           </a>

@@ -1,7 +1,14 @@
-.mainContainer {
-  padding: 1rem;
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.7);
+  justify-content: center;
   text-align: center;
   overflow: hidden;
+  height: 80vh;
+  padding: 1rem;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
@@ -10,20 +17,21 @@
   gap: 3rem;
 }
 
-.registerNowButton,
-.loginButton {
-  background-color: #0057a2;
+.register-now-button,
+.login-button {
+  background-color: #1578cf;
   color: white;
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin: 2rem 0;
-  width: 30%;
+  height: 50px;
+  width: 20%;
 }
 
-.registerNowButton:hover,
-.loginButton:hover {
+.register-now-button:hover,
+.login-button:hover {
   background-color: #258eeb;
 }
 
@@ -35,7 +43,7 @@ h1 {
 .subheadline {
   font-size: 1.25rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #5f5f5f;
 }
 
 .headline {

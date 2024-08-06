@@ -7,7 +7,7 @@ import "primeicons/primeicons.css";
 
 export default function HomePage() {
   return (
-    <div className="mainContainer">
+    <div className="home-page-container">
       <div className="headline">
         <h1>Welcome to the FDIBA Alumni Network!</h1>
         <p className="subheadline">
@@ -19,12 +19,12 @@ export default function HomePage() {
       <div className="buttons">
         <Button
           label="Register Now"
-          className="registerNowButton"
+          className="register-now-button"
           onClick={() => (window.location.href = "/register")}
         />
         <Button
           label="Login"
-          className="loginButton"
+          className="login-button"
           onClick={() => (window.location.href = "/login")}
         />
       </div>
