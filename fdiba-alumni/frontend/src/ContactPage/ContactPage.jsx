@@ -1,76 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ContactPage.css";
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChangeInput = (fieldName) => (e) => {
-    setFormData({ ...formData, [fieldName]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-      console.log(data); // Handle the response from the backend as needed
-
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Error sending message:", error);
-    }
-  };
-
   return (
-    <div className="contact-container">
-      <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChangeInput("name")}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChangeInput("email")}
-            required
-          />
-        </label>
-        <label>
-          Message:
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChangeInput("message")}
-            required
-          />
-        </label>
-        <button type="submit" className="send-button">
-          Send Message
-        </button>
-      </form>
+    <div className="contact-page-container">
+      <div className="contact-person-container">
+        <img src="/webpage-1.png" alt="contact-photo" />
+        <h1>Contact</h1>
+        <div className="contact-person-info">
+          <p>Technical University of Sofia</p>
+          <p>FDIBA</p>
+          <p>Sofia 1756</p>
+          <p>8 blvd. St. Kliment Ohridski, Block 10, 2 Floor</p>
+          <p>Phone: +359 2 965 3213</p>
+          <p>Email: contact[at]fdiba.tu-sofia.bg</p>
+        </div>
+      </div>
+      <h3>Contact Person</h3>
+      <div className="contact-person-container">
+        <img src="/DStancheva.jpg" alt="DStancheva" />
+        <div className="contact-person-info">
+          <p>Detelina Stancheva</p>
+          <p>Dean’s office</p>
+          <p>Tel.: +359 2 965 3213</p>
+          <p>detelina.stancheva@fdiba.tu-sofia.bg</p>
+        </div>
+      </div>
     </div>
   );
 };
