@@ -34,7 +34,7 @@
 .login-container button {
   padding: 10px;
   margin-top: 20px;
-  background-color: #007bff;
+  background-color: #1578cf;
   color: white;
   border: none;
   border-radius: 5px;
@@ -57,7 +57,7 @@
 }
 
 .login-links a {
-  color: #007bff;
+  color: #1578cf;
   text-decoration: none;
 }
 

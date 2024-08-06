@@ -107,7 +107,7 @@ const RegistrationForm = () => {
 
   return (
     <>
-      <div className="formContainer">
+      <div className="form-container">
         <h2>Welcome to FDIBA Alumni!</h2>
         <form onSubmit={handleSubmit}>
           <label>
@@ -222,7 +222,7 @@ const RegistrationForm = () => {
             </label>
           </div>
 
-          <div type="submit" className="registerButton">
+          <div type="submit" className="register-button">
             Register
           </div>
         </form>

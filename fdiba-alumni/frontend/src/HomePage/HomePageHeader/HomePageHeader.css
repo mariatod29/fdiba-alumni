@@ -6,30 +6,30 @@
   background-color: rgba(162, 192, 218, 0.8);
 }
 
-.headingContainer {
+.heading-container {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
 h3 {
-  color: #0057a2;
+  color: #1578cf;
 }
 
-.navigationList {
+.navigation-list {
   list-style: none;
   padding: 0;
   display: flex;
   gap: 15px;
 }
 
-.navigationItem a {
+.navigation-item a {
   text-decoration: none;
   color: #ffffff;
   font-weight: bold;
 }
 
-.navigationItem a:hover {
+.navigation-item a:hover {
     color: #0057a2;
   }
 
