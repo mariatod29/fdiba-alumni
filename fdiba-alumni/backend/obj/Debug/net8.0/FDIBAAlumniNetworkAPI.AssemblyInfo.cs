@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FDIBAAlumniNetworkAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c42abddeb69780e78e0076a27e4806fa417b1e6e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+209d3b41ef93b610a821e8aa765dde008ea44f4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("FDIBAAlumniNetworkAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FDIBAAlumniNetworkAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

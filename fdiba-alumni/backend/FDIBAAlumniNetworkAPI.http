@@ -1,4 +1,4 @@
-@FDIBAAlumniNetworkAPI_HostAddress = http://localhost:5237
+@FDIBAAlumniNetworkAPI_HostAddress = http://localhost:5000
 
 GET {{FDIBAAlumniNetworkAPI_HostAddress}}/weatherforecast/
 Accept: application/json
