@@ -90,18 +90,21 @@ const RegistrationForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost/path/to/register.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-      console.log(data); // Handle the response from the backend as needed
+      await axios.post(
+        "http://localhost:5000/api/user",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } catch (error) {
-      console.error("Error:", error);
+      if (error.response) {
+        console.error("Registration failed:", error.response.data);
+      } else {
+        console.error("Error:", error.message);
+      }
     }
   };
 
