@@ -1,6 +1,4 @@
 using FDIBAAlumniNetworkAPI.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace FDIBAAlumniNetworkAPI.Services
 {
@@ -8,6 +6,6 @@ namespace FDIBAAlumniNetworkAPI.Services
     {
         Task<IEnumerable<Event>> GetAllEventsAsync();
         Task<Event> GetEventByIdAsync(int id);
-        Task CreateEventAsync(Event event);
-        }
+        Task CreateEventAsync(Event fdibaEvent);
     }
+};

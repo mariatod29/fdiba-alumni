@@ -24,9 +24,9 @@ namespace FDIBAAlumniNetworkAPI.Services
             return await _eventRepository.GetByIdAsync(id);
         }
 
-        public async Task CreateEventAsync(Event event)
+        public async Task CreateEventAsync(Event fdibaEvent) 
         {
-            await _eventRepository.AddAsync(event);
+            await _eventRepository.AddAsync(fdibaEvent);
         }
     }
 }

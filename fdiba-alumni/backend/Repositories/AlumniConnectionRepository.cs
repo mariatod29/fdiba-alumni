@@ -1,3 +1,4 @@
+using FDIBAAlumniNetworkAPI.Data;
 using FDIBAAlumniNetworkAPI.Models;
 
 namespace FDIBAAlumniNetworkAPI.Repositories

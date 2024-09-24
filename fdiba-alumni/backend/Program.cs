@@ -1,3 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using FDIBAAlumniNetworkAPI.Data;
+using FDIBAAlumniNetworkAPI.Repositories;
+using FDIBAAlumniNetworkAPI.Services;
+
 internal class Program
 {
     private static void Main(string[] args)
@@ -16,10 +22,30 @@ internal class Program
                 policy =>
                 {
                     policy.WithOrigins("http://localhost:3000")
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
                 });
         });
+
+        // Add DbContext
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        // Register repositories
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
+        builder.Services.AddScoped<IEventRepository, EventRepository>();
+        builder.Services.AddScoped<IJobRepository, JobRepository>();
+        builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+        builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+        builder.Services.AddScoped<IAlumniConnectionRepository, AlumniConnectionRepository>();
+
+        // Register services
+        builder.Services.AddScoped<IUserService, UserService>();
+        builder.Services.AddScoped<IEventService, EventService>();
+        builder.Services.AddScoped<IJobService, JobService>();
+        builder.Services.AddScoped<IMessageService, MessageService>();
+        builder.Services.AddScoped<IProfileService, ProfileService>();
+        builder.Services.AddScoped<IAlumniConnectionService, AlumniConnectionService>();
 
         var app = builder.Build();
 

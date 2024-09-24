@@ -5,7 +5,7 @@ namespace FDIBAAlumniNetworkAPI.Services
 {
     public interface IProfileService
     {
-        Task<Profile> GetProfileByIdAsync(int id);
+        Task<Profile> GetProfileByEmailAsync(string email);
         Task UpdateProfileAsync(Profile profile);
     }
 }

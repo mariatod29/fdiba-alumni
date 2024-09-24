@@ -16,23 +16,38 @@ namespace FDIBAAlumniNetworkAPI.Controllers
             _profileService = profileService;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetProfileById(int id)
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetProfileByEmail(string email)
         {
-            var profile = await _profileService.GetProfileByIdAsync(id);
+            var profile = await _profileService.GetProfileByEmailAsync(email);
             if (profile == null)
                 return NotFound();
 
             return Ok(profile);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProfile(int id, [FromBody] Profile profile)
+        [HttpPut("{email}")]
+        public async Task<IActionResult> UpdateProfile(string email, [FromBody] Profile profile)
         {
-            if (id != profile.ProfileId)
-                return BadRequest();
+            if (profile == null)
+                return BadRequest("Profile data is null.");
 
-            await _profileService.UpdateProfileAsync(profile);
+            var existingProfile = await _profileService.GetProfileByEmailAsync(email);
+            if (existingProfile == null)
+                return NotFound("Profile not found.");
+
+            existingProfile.FirstName = profile.FirstName;
+            existingProfile.LastName = profile.LastName;
+            existingProfile.PhoneNumber = profile.PhoneNumber;
+            existingProfile.LinkedIn = profile.LinkedIn;
+            existingProfile.DegreeProgramme = profile.DegreeProgramme;
+            existingProfile.UniversityDegree = profile.UniversityDegree;
+            existingProfile.YearOfGraduation = profile.YearOfGraduation;
+            existingProfile.Organization = profile.Organization;
+            existingProfile.Position = profile.Position;
+            existingProfile.RolesInFdibaAlumni = profile.RolesInFdibaAlumni;
+
+            await _profileService.UpdateProfileAsync(existingProfile);
             return NoContent();
         }
     }

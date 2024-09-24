@@ -13,9 +13,9 @@ namespace FDIBAAlumniNetworkAPI.Services
             _profileRepository = profileRepository;
         }
 
-        public async Task<Profile> GetProfileByIdAsync(int id)
+        public async Task<Profile> GetProfileByEmailAsync(string email)
         {
-            return await _profileRepository.GetByIdAsync(id);
+            return await _profileRepository.GetProfileByEmailAsync(email);
         }
 
         public async Task UpdateProfileAsync(Profile profile)

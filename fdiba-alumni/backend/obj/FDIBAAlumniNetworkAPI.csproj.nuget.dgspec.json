@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mtodorova\\source\\repos\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI.csproj": {}
+    "C:\\Users\\mtodorova\\fdiba-alumni\\fdiba-alumni\\backend\\FDIBAAlumniNetworkAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mtodorova\\source\\repos\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI.csproj": {
+    "C:\\Users\\mtodorova\\fdiba-alumni\\fdiba-alumni\\backend\\FDIBAAlumniNetworkAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtodorova\\source\\repos\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI.csproj",
+        "projectUniqueName": "C:\\Users\\mtodorova\\fdiba-alumni\\fdiba-alumni\\backend\\FDIBAAlumniNetworkAPI.csproj",
         "projectName": "FDIBAAlumniNetworkAPI",
-        "projectPath": "C:\\Users\\mtodorova\\source\\repos\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI.csproj",
+        "projectPath": "C:\\Users\\mtodorova\\fdiba-alumni\\fdiba-alumni\\backend\\FDIBAAlumniNetworkAPI.csproj",
         "packagesPath": "C:\\Users\\mtodorova\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtodorova\\source\\repos\\FDIBAAlumniNetworkAPI\\FDIBAAlumniNetworkAPI\\obj\\",
+        "outputPath": "C:\\Users\\mtodorova\\fdiba-alumni\\fdiba-alumni\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mtodorova\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[3.0.1, )"
             },
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -57,6 +61,10 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.8, )"
             },

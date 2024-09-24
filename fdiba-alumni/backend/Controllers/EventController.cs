@@ -27,18 +27,21 @@ namespace FDIBAAlumniNetworkAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEventById(int id)
         {
-            var event = await _eventService.GetEventByIdAsync(id);
-            if (event == null)
+            var fdibaEvent = await _eventService.GetEventByIdAsync(id);
+            if (fdibaEvent == null)
                 return NotFound();
 
-            return Ok(event);
+            return Ok(fdibaEvent);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateEvent([FromBody] Event event)
+        public async Task<IActionResult> CreateEvent([FromBody] Event fdibaEvent)
         {
-            await _eventService.CreateEventAsync(event);
-            return CreatedAtAction(nameof(GetEventById), new { id = event.EventId }, event);
+            if (fdibaEvent == null)
+                return BadRequest("Event cannot be null.");
+
+            await _eventService.CreateEventAsync(fdibaEvent);
+            return CreatedAtAction(nameof(GetEventById), new { id = fdibaEvent.EventId }, fdibaEvent);
         }
     }
 }

@@ -1,3 +1,4 @@
+using FDIBAAlumniNetworkAPI.Data;
 using FDIBAAlumniNetworkAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -8,9 +9,10 @@ namespace FDIBAAlumniNetworkAPI.Repositories
     {
         public UserRepository(ApplicationDbContext context) : base(context) { }
 
-        public async Task<User> GetByUsernameAsync(string username)
+        public async Task<User?> GetByEmailAsync(string email)
         {
-            return await _context.Users.SingleOrDefaultAsync(u => u.Username == username);
+            return await _context.Users.SingleOrDefaultAsync(u => u.Email == email);
         }
+
     }
 }

@@ -1,3 +1,4 @@
+using FDIBAAlumniNetworkAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace FDIBAAlumniNetworkAPI.Repositories
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
@@ -38,8 +39,11 @@ namespace FDIBAAlumniNetworkAPI.Repositories
         public async Task DeleteAsync(int id)
         {
             var entity = await GetByIdAsync(id);
-            _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
+            if (entity != null) 
+            {
+                _context.Set<T>().Remove(entity);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

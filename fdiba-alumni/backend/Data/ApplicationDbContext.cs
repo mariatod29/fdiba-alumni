@@ -1,3 +1,6 @@
+using FDIBAAlumniNetworkAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace FDIBAAlumniNetworkAPI.Data
 {
     public class ApplicationDbContext : DbContext
@@ -15,14 +18,14 @@ namespace FDIBAAlumniNetworkAPI.Data
         {
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Profile)
-                .WithOne(p => p.User)
+                .WithOne()
                 .HasForeignKey<Profile>(p => p.UserId);
 
             modelBuilder.Entity<Message>()
-            .HasOne(m => m.Sender)
-            .WithMany()
-            .HasForeignKey(m => m.SenderId)
-            .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(m => m.Sender)
+                .WithMany()
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Receiver)
@@ -41,6 +44,7 @@ namespace FDIBAAlumniNetworkAPI.Data
                 .WithMany()
                 .HasForeignKey(ac => ac.ConnectedUserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
             base.OnModelCreating(modelBuilder);
         }
     }
