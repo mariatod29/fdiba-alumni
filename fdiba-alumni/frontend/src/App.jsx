@@ -10,6 +10,8 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
+import EventsPage from "./pages/EventsPage/EventsPage";
+import JobsPage from "./pages/JobsPage/JobsPage";
 
 
 const App = observer(() => {
@@ -25,6 +27,8 @@ const App = observer(() => {
         <Route path="/edit-profile" element={<EditProfilePage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/jobs" element={<JobsPage />} />
       </Routes>
     </Router>
   );

@@ -25,7 +25,7 @@ namespace FDIBAAlumniNetworkAPI.Models
         public string? YearOfGraduation { get; set; }
         public string? Organization { get; set; }
         public string? Position { get; set; }
-        public string RoleInFdibaAlumniSerialized { get; set; } = string.Empty;
+        public string? RoleInFdibaAlumniSerialized { get; set; }
         public int UserId { get; set; }
 
         [NotMapped]

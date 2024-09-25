@@ -41,7 +41,8 @@ class RegistrationStore {
         LinkedIn: this.formData.linkedIn || "",
         Organization: this.formData.organization || "",
         Position: this.formData.position || "",
-        RoleInFdibaAlumniSerialized: this.formData.RoleInFdibaAlumniSerialized,
+        RoleInFdibaAlumniSerialized:
+          this.formData.RoleInFdibaAlumniSerialized.join(","), // Serialize the array to a string
       },
     };
 

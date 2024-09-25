@@ -35,7 +35,6 @@ internal class Program
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped<IEventRepository, EventRepository>();
         builder.Services.AddScoped<IJobRepository, JobRepository>();
-        builder.Services.AddScoped<IMessageRepository, MessageRepository>();
         builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
         builder.Services.AddScoped<IAlumniConnectionRepository, AlumniConnectionRepository>();
 
@@ -43,7 +42,6 @@ internal class Program
         builder.Services.AddScoped<IUserService, UserService>();
         builder.Services.AddScoped<IEventService, EventService>();
         builder.Services.AddScoped<IJobService, JobService>();
-        builder.Services.AddScoped<IMessageService, MessageService>();
         builder.Services.AddScoped<IProfileService, ProfileService>();
         builder.Services.AddScoped<IAlumniConnectionService, AlumniConnectionService>();
 
@@ -56,6 +54,8 @@ internal class Program
             app.UseSwaggerUI();
         }
 
+
+
         app.UseHttpsRedirection();
 
         app.UseCors("AllowReactApp"); // Use the CORS policy
@@ -65,5 +65,20 @@ internal class Program
         app.MapControllers();
 
         app.Run();
+    }
+
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.UseRouting();
+
+        app.UseCors("AllowAllOrigins"); // Add this line to use the CORS policy
+
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
     }
 }

@@ -11,7 +11,6 @@ namespace FDIBAAlumniNetworkAPI.Data
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Job> Jobs { get; set; }
-        public DbSet<Message> Messages { get; set; }
         public DbSet<AlumniConnection> AlumniConnections { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,18 +19,6 @@ namespace FDIBAAlumniNetworkAPI.Data
                 .HasOne(u => u.Profile)
                 .WithOne()
                 .HasForeignKey<Profile>(p => p.UserId);
-
-            modelBuilder.Entity<Message>()
-                .HasOne(m => m.Sender)
-                .WithMany()
-                .HasForeignKey(m => m.SenderId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Message>()
-                .HasOne(m => m.Receiver)
-                .WithMany()
-                .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<AlumniConnection>()
                 .HasOne(ac => ac.User)

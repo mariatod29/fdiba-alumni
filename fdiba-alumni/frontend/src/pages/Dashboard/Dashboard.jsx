@@ -2,16 +2,31 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Carousel } from "primereact/carousel";
 import profileStore from "../../stores/ProfileStore";
+import eventStore from "../../stores/EventStore";
+import jobStore from "../../stores/JobStore";
 
 const Dashboard = () => {
   const [username, setUsername] = useState("User");
+  const [events, setEvents] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     const email = "201220029@fdiba.tu-sofia.bg";
     profileStore.fetchProfile(email);
-    setUsername(profileStore.formData.firstName);
-  }, []);
+    setUsername(profileStore.formData.firstName || "User");
 
+    const fetchEventsData = async () => {
+      await eventStore.fetchEvents();
+      setEvents(eventStore.events);
+    };
+    fetchEventsData();
+
+    const fetchJobsData = async () => {
+      await jobStore.fetchJobs();
+      setJobs(jobStore.jobs);
+    };
+    fetchJobsData();
+  }, []);
 
   const images = [
     { url: "/fdiba-event-1.png", alt: "Event 1" },
@@ -53,7 +68,7 @@ const Dashboard = () => {
             <a href="/profile">Profile</a>
           </li>
           <li>
-            <a href="/projects">Projects</a>
+            <a href="/jobs">Jobs</a>
           </li>
           <li>
             <a href="/events">Events</a>
@@ -63,6 +78,8 @@ const Dashboard = () => {
           </li>
         </ul>
       </nav>
+
+      {/* Carousel Section */}
       <Carousel
         value={images}
         numVisible={1}
@@ -73,20 +90,61 @@ const Dashboard = () => {
         autoplayInterval={5000}
         itemTemplate={imageTemplate}
       />
-      <aside className="dashboard-sidebar">
+      <div className="dashboard-sections">
+        {/* Events Section */}
+        <section className="dashboard-section">
+          <h2>Upcoming Events</h2>
+          <ul>
+            {events.length > 0 ? (
+              events.map((event) => (
+                <li key={event.eventId}>
+                  <h3>{event.title}</h3>
+                  <p>Description: {event.description}</p>
+                  <p>
+                    Date:{" "}
+                    {event.date
+                      ? new Date(event.date).toLocaleDateString()
+                      : "TBA"}
+                  </p>
+                  <p>Location: {event.location}</p>
+                </li>
+              ))
+            ) : (
+              <p>No events available.</p>
+            )}
+          </ul>
+        </section>
+        {/* Jobs Section */}
+        <section className="dashboard-section">
+          <h2>Job opportunities</h2>
+          <ul>
+            {jobs.length > 0 ? (
+              jobs.map((jobs) => (
+                <li key={jobs.jobId}>
+                  <h3>{jobs.title}</h3>
+                  <p>Description: {jobs.description}</p>
+                  <p>Company: {jobs.company}</p>
+                  <p>Job type: {jobs.type}</p>
+                  <p>Experience level: {jobs.experienceLevel}</p>
+                </li>
+              ))
+            ) : (
+              <p>No jobs available.</p>
+            )}
+          </ul>
+        </section>
+      </div>
+      {/* <aside className="dashboard-sidebar">
         <h2>Quick Links</h2>
         <ul>
           <li>
             <a href="/update-profile">Update Profile</a>
           </li>
           <li>
-            <a href="/add-project">Add New Project</a>
-          </li>
-          <li>
             <a href="/search-alumni">Search for Alumni</a>
           </li>
         </ul>
-      </aside>
+      </aside> */}
     </div>
   );
 };

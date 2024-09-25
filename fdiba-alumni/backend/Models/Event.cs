@@ -5,10 +5,10 @@ namespace FDIBAAlumniNetworkAPI.Models
     public class Event
     {
         public int EventId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Date { get; set; }
-        public string Location { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Date { get; set; } = string.Empty;
+        public string Location { get; set; } = string.Empty;
     }
 
 }
