@@ -27,6 +27,21 @@
   margin-bottom: 10px;
 }
 
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.contact-container img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
 .contact-person-container {
   display: flex;
   justify-content: center;
