@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FDIBAAlumniNetworkAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+deedcbdbd8a5104af329b5683ac9149d0d65dee0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d70de93e3c58c988fbe5c7fdd333a34aa511cc1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("FDIBAAlumniNetworkAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FDIBAAlumniNetworkAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

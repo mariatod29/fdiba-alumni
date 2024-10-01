@@ -3,8 +3,6 @@ using FDIBAAlumniNetworkAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using FDIBAAlumniNetworkAPI.Data;
 
 namespace FDIBAAlumniNetworkAPI.Controllers
@@ -82,13 +80,12 @@ namespace FDIBAAlumniNetworkAPI.Controllers
                 return BadRequest("Invalid login request.");
             }
 
-            var user = await _userService.GetUserByEmailAsync(request.Email); // Fetch user by email
+            var user = await _userService.GetUserByEmailAsync(request.Email);
             if (user == null || !VerifyPassword(request.Password, user.PasswordHash))
             {
                 return Unauthorized("Invalid credentials.");
             }
 
-            // Logic for generating and returning a token, if applicable
             return Ok("Login successful");
         }
 
@@ -107,37 +104,13 @@ namespace FDIBAAlumniNetworkAPI.Controllers
                 iterationCount: 10000,
                 numBytesRequested: 32));
 
-            // Use ':' as the separator
             return $"{Convert.ToBase64String(salt)}:{hashed}";
         }
 
         public bool VerifyPassword(string password, string storedHash)
         {
-            // Split the stored hash to get salt and hash
-            var parts = storedHash.Split(':');
-
-            if (parts.Length != 2)
-            {
-                throw new InvalidOperationException("Stored hash format is invalid.");
-            }
-
-            var salt = Convert.FromBase64String(parts[0]);
-            var storedPasswordHash = parts[1];
-
-            // Recompute the hash with the same parameters
-            var computedHash = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                password: password,
-                salt: salt,
-                prf: KeyDerivationPrf.HMACSHA256,
-                iterationCount: 10000,
-                numBytesRequested: 32));
-
-            // Compare the computed hash with the stored hash
-            return storedPasswordHash == computedHash;
+            return storedHash == HashPassword(password);
         }
-
-        // Additional methods for CRUD operations...
-
     }
 
     public class RegisterUserRequest

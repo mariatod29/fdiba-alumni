@@ -10,7 +10,13 @@ export default function HomePageHeader() {
     <div className="header">
       <div className="heading-container">
         <img src="/fdiba-logo.png" alt="FDIBA Logo" className="logo" />
-        <h3>FDIBA Alumni</h3>
+        <h3
+          onClick={() => {
+            window.location.href = "/dashboard";
+          }}
+        >
+          FDIBA Alumni
+        </h3>
       </div>
       <ul className="navigation-list">
         <li className="navigation-item">

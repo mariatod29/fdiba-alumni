@@ -4,6 +4,7 @@ import { Carousel } from "primereact/carousel";
 import profileStore from "../../stores/ProfileStore";
 import eventStore from "../../stores/EventStore";
 import jobStore from "../../stores/JobStore";
+import HomePageHeader from "../HomePage/HomePageHeader/HomePageHeader";
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
@@ -56,83 +57,86 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container">
-      <header className="dashboard-header">
-        <h1>Welcome, Maria!</h1>
-      </header>
-      <nav className="dashboard-nav">
-        <ul>
-          <li>
-            <a href="/profile">Profile</a>
-          </li>
-          <li>
-            <a href="/jobs">Jobs</a>
-          </li>
-          <li>
-            <a href="/events">Events</a>
-          </li>
-          <li>
-            <a href="/edit-profile">Settings</a>
-          </li>
-        </ul>
-      </nav>
+    <>
+      <HomePageHeader />
+      <div className="dashboard-container">
+        <header className="dashboard-header">
+          <h1>Welcome, Maria!</h1>
+        </header>
+        <nav className="dashboard-nav">
+          <ul>
+            <li>
+              <a href="/profile">Profile</a>
+            </li>
+            <li>
+              <a href="/jobs">Jobs</a>
+            </li>
+            <li>
+              <a href="/events">Events</a>
+            </li>
+            <li>
+              <a href="/edit-profile">Settings</a>
+            </li>
+          </ul>
+        </nav>
 
-      {/* Carousel Section */}
-      <Carousel
-        value={images}
-        numVisible={1}
-        numScroll={1}
-        responsiveOptions={responsiveOptions}
-        className="custom-carousel"
-        circular
-        autoplayInterval={5000}
-        itemTemplate={imageTemplate}
-      />
-      <div className="dashboard-sections">
-        {/* Events Section */}
-        <section className="dashboard-section">
-          <h2>Upcoming Events</h2>
-          <ul>
-            {events.length > 0 ? (
-              events.map((event) => (
-                <li key={event.eventId}>
-                  <h3>{event.title}</h3>
-                  <p>Description: {event.description}</p>
-                  <p>
-                    Date:{" "}
-                    {event.date
-                      ? new Date(event.date).toLocaleDateString()
-                      : "TBA"}
-                  </p>
-                  <p>Location: {event.location}</p>
-                </li>
-              ))
-            ) : (
-              <p>No events available.</p>
-            )}
-          </ul>
-        </section>
-        {/* Jobs Section */}
-        <section className="dashboard-section">
-          <h2>Job opportunities</h2>
-          <ul>
-            {jobs.length > 0 ? (
-              jobs.map((jobs) => (
-                <li key={jobs.jobId}>
-                  <h3>{jobs.title}</h3>
-                  <p>Description: {jobs.description}</p>
-                  <p>Company: {jobs.company}</p>
-                  <p>Job type: {jobs.type}</p>
-                  <p>Experience level: {jobs.experienceLevel}</p>
-                </li>
-              ))
-            ) : (
-              <p>No jobs available.</p>
-            )}
-          </ul>
-        </section>
+        {/* Carousel Section */}
+        <Carousel
+          value={images}
+          numVisible={1}
+          numScroll={1}
+          responsiveOptions={responsiveOptions}
+          className="custom-carousel"
+          circular
+          autoplayInterval={5000}
+          itemTemplate={imageTemplate}
+        />
+        <div className="dashboard-sections">
+          {/* Events Section */}
+          <section className="dashboard-section">
+            <h2>Upcoming Events</h2>
+            <ul>
+              {events.length > 0 ? (
+                events.map((event) => (
+                  <li key={event.eventId}>
+                    <h3>{event.title}</h3>
+                    <p>Description: {event.description}</p>
+                    <p>
+                      Date:{" "}
+                      {event.date
+                        ? new Date(event.date).toLocaleDateString()
+                        : "TBA"}
+                    </p>
+                    <p>Location: {event.location}</p>
+                  </li>
+                ))
+              ) : (
+                <p>No events available.</p>
+              )}
+            </ul>
+          </section>
+          {/* Jobs Section */}
+          <section className="dashboard-section">
+            <h2>Job opportunities</h2>
+            <ul>
+              {jobs.length > 0 ? (
+                jobs.map((jobs) => (
+                  <li key={jobs.jobId}>
+                    <h3>{jobs.title}</h3>
+                    <p>Description: {jobs.description}</p>
+                    <p>Company: {jobs.company}</p>
+                    <p>Job type: {jobs.type}</p>
+                    <p>Experience level: {jobs.experienceLevel}</p>
+                  </li>
+                ))
+              ) : (
+                <p>No jobs available.</p>
+              )}
+            </ul>
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

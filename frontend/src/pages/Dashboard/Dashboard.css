@@ -32,8 +32,9 @@
 
 .dashboard-sections {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
 }
 
 .dashboard-section {
