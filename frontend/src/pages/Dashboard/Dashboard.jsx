@@ -105,7 +105,7 @@ const Dashboard = () => {
                       Date:{" "}
                       {event.date
                         ? new Date(event.date).toLocaleDateString()
-                        : "TBA"}
+                        : "To be defined"}
                     </p>
                     <p>Location: {event.location}</p>
                   </li>
